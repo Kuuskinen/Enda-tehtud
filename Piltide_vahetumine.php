@@ -1,20 +1,20 @@
 <?php
 //muutujad
-$piltide_kataloog = "../HarjutaminePics/";
+$piltide_kataloog = "../HarjutaminePics/"; //See on teejuht, kust fotod võtta
 $piltide_list = []; //See on tühi list, kuhu tulevad fotod
 $piltide_vormingud = ["jpeg", "jpg"]; //piltide vormingud
 
-$kõikFailid = array_slice(scandir($piltide_kataloog), 2);
-foreach ($kõikFailid as $file){
-    $pilt = pathinfo($file, PATHINFO_EXTENSION);
-    if (in_array($pilt, $piltide_vormingud) == true){
-        array_push($piltide_list, $file);
+$kõikFailid = array_slice(scandir($piltide_kataloog), 2); //array_slice võtab listist lõigu ja scandir tagastab selles kataloogis olevate failide listi (kogu kupatuse)!
+foreach ($kõikFailid as $file){ //<--- võtab elemendi, paneb elemendi muutujasse $file ja jooksutab tsükli. Iga elemendi kohta jookseb tsükkel ühe korra.
+    $pilt = pathinfo($file, PATHINFO_EXTENSION); //tagastab info failinime kohta ja faili viimase osa (näiteks .pdf.jpg korral .jpg)
+    if (in_array($pilt, $piltide_vormingud) == true){ //vaatab, kas soovitud vorming on listi sees
+        array_push($piltide_list, $file); //lisab elemendi listi lõppu
     }	
 } //tsükli lõpp on siin
 
-$piltide_loendur = count($piltide_list);
-$kuvatava_foto_valimine = mt_rand(0, $piltide_loendur);
-$kuvatav_foto = $piltide_list[$kuvatava_foto_valimine];	
+$piltide_loendur = count($piltide_list); //loendab listis olevate fotode arvu
+$kuvatava_foto_valimine = mt_rand(0, $piltide_loendur-1); //võtab suvalise numbri vahemikus 0 kuni 4
+$kuvatav_foto = $piltide_list[$kuvatava_foto_valimine];	//ühendades listi ja indeksiks määratud suvalise numbri, kuvatakse foto 
 ?>
 
 
