@@ -4,7 +4,7 @@ $piltide_kataloog = "../HarjutaminePics/"; //See on teejuht, kust fotod võtta
 $piltide_list = []; //See on tühi list, kuhu tulevad fotod
 $piltide_vormingud = ["jpeg", "jpg"]; //piltide vormingud
 
-$kõikFailid = array_slice(scandir($piltide_kataloog), 2); //array_slice võtab listist lõigu ja scandir tagastab selles kataloogis olevate failide listi (kogu kupatuse)!
+$kõikFailid = array_slice(scandir($piltide_kataloog), 2); //array_slice võtab listist lõigu ja scandir tagastab selles kataloogis olevate failide listi (kogu kupatuse)! Koodijupp (täpsemalt number) näitab, et kasutaja ei taha kataloogi vaid ainult selle sisu.
 foreach ($kõikFailid as $file){ //<--- võtab elemendi, paneb elemendi muutujasse $file ja jooksutab tsükli. Iga elemendi kohta jookseb tsükkel ühe korra.
     $pilt = pathinfo($file, PATHINFO_EXTENSION); //tagastab info failinime kohta ja faili viimase osa (näiteks .pdf.jpg korral .jpg)
     if (in_array($pilt, $piltide_vormingud) == true){ //vaatab, kas soovitud vorming on listi sees
@@ -26,4 +26,8 @@ $kuvatav_foto = $piltide_list[$kuvatava_foto_valimine];	//ühendades listi ja in
 <body>
 <h1>NASA fotod</h1>
 <p>Siin vahetuvad koos lehekülje refreshimisega kasutajale kuvatavad fotod.<br> NB! Kõik kasutatavad fotod on avaldatud public domain'is ning need on teinud ja avaldanud NASA. Pilte tohib taaskasutada, kuid sel juhul peab viitama NASAle kui nende tootjale.</p>
-<img src="<?php echo $piltide_kataloog .$kuvatav_foto?>" alt="NASA foto" style="width:500px;height:600px;"> 	
+<img src="<?php echo $piltide_kataloog .$kuvatav_foto?>" alt="NASA foto" style="width:500px;height:600px;"> 
+<!--echo järel olev koodijupp ütleb, kust kuvatakse ja mida kuvatakse?--->
+<!--style määrab pildi suuruse ja alt on mõeldud  vaegkuulijatele, kes pildi vaatamise asemele kuulavad või kui pilti ei saa mingil põhjusel laadida, kuvab selle teksti (alati string).--->	
+</body>
+</html>
