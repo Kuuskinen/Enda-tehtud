@@ -42,15 +42,10 @@ function VAIN(){
 	while($stmt->fetch() == true){
 	//$stmt->fetch(); Ebavajalik. See on juba while tingimuses (expect the unexcpected)
 	array_push($keeled, $keel); //paneb elemendi listi $keeled lõppu 
-	} //siin lõppeb while 
+	} //siin lõppeb while-funktsioon 
 	$stmt->close(); //statement close 
 	return $keeled; //tagastab keeled 
 }
-	
-	
-	
-	
-	
 	
 	//"SELECT sunday, monday, tuesday, wednesday, thursday, friday, saturday FROM vpnadalapaevad WHERE language = ?" 
 ?>
