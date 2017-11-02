@@ -70,17 +70,17 @@ require("functions2.php");
 <body>
 	<h1>Nädalapäevade valik</h1>
 	<p>Sobivad keeled on: eesti, soome, prantsuse, norra ja baski.</p>
-	<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>"><!---HTMLspecialchars muudab erimärgid HTMLi sisestuseks.--->
+	<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>"><!--HTMLspecialchars muudab erimärgid HTMLi sisestuseks.-->
 		<label>Keel: </label>
 		<input name="nadalapaevKeel" type="text" value="<?php echo $nadalapaevKeel; ?>"><span><?php echo $nadalapaevKeelError; ?></span>
 		<br><br>
-		<input name="confirmButton" type="submit" value="Kinnita"><!---tavalise valiku nupp--->
+		<input name="confirmButton" type="submit" value="Kinnita"><!--tavalise valiku nupp-->
 		<br><br>
-		<input name="fiaskoButton" type="submit" value="Fiasko"><!--suvalise valiku nupp--->
+		<input name="fiaskoButton" type="submit" value="Fiasko"><!--suvalise valiku nupp-->
 		<br><br>
 	    <?php if (!empty($notice)){ echo $notice[date("w")];} ?> <!--kuvab nädalapäeva valitud keeles ainult siis kui notice saab väärtuse-->
 		<br><br>
-		<?php if (!empty($teadaanne)){echo $teadaanne[date("w")];} ?><!--kuvab suvalise keele ainult siis, kui teadaanne saab väärtuse---> 
+		<?php if (!empty($teadaanne)){echo $teadaanne[date("w")];} ?><!--kuvab suvalise keele ainult siis, kui teadaanne saab väärtuse--> 
 		<br>
 		<?php echo date("w");?>
 	</form>
